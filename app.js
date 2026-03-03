@@ -154,8 +154,8 @@ const holdScore = (diceValue) => {
             finalScorePlayerOne.style.color = "white"
             finalScorePlayerTwo.style.color = "white"
             finalScorePlayerTwo.innerHTML = "100"
-           remarksPlayerOne.innerHTML = "Player One Won"
-            remarksPlayerTwo.innerHTML = "Player Two Loss"
+           remarksPlayerTwo.innerHTML = "Player Two Won"
+            remarksPlayerOne.innerHTML = "Player One Loss"
             playerTwoActive.style.backgroundColor = "#84B179"
             hold.disabled = true;
             playSound(winSound)
@@ -190,3 +190,4 @@ const gamereset = () => {
 
 
 reset.addEventListener("click", gamereset)
+
