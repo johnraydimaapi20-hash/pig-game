@@ -22,7 +22,7 @@ let currentP2 = 0
 
 let addPoints = new Audio("addPoints.mp3")
 let errorSound = new Audio("error.mp3")
-let winSound = new Audio("winner.mp3")
+let winSound = new Audio("Winner.mp3")
 let HoldSound = new Audio("holdSound.mp3")
 let gameresetSound = new Audio("gameReset.mp3")
 
@@ -182,11 +182,13 @@ const gamereset = () => {
     playerTwoActive.classList.remove('player--active');
     finalScorePlayerOne.textContent = playerOne;
     finalScorePlayerTwo.textContent = playerTwo;
+    dice.src = "dice-1.png";
     hold.disabled = false;
     remarksPlayerOne.innerHTML = "";
     remarksPlayerTwo.innerHTML = "";
     btnroll.disabled = false;
     playSound(gameresetSound)
 }
+
 
 reset.addEventListener("click", gamereset)
