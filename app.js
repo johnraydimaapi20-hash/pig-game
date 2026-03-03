@@ -21,6 +21,7 @@ let playerTwo = 0;
 let currentP2 = 0
 
 let addPoints = new Audio("addPoints.mp3")
+let errorSound = new Audio("error.mp3")
 let winSound = new Audio("winner.mp3")
 let HoldSound = new Audio("holdSound.mp3")
 let gameresetSound = new Audio("gameReset.mp3")
@@ -29,12 +30,12 @@ const rollDice = () => {
     x = Math.floor(Math.random() * 6) + 1;
     console.log(x);
     changeDiceImage(x)
-    switchPlayer(x)
+   switchPlayer(x)
 }
 
 
 function playSound(sound) {
-    const allSounds = [addPoints, winSound, HoldSound, gameresetSound];
+    const allSounds = [addPoints, winSound, HoldSound, gameresetSound, errorSound];
 
     allSounds.forEach(s => {
         if (s !== sound) {
@@ -98,13 +99,13 @@ const switchPlayer = (diceValue) => {
             playerOneActive.classList.remove('player--active');
             playerTwoActive.classList.add('player--active');
             currentP1 = 0
-            playSound(HoldSound)
+            playSound(errorSound)
             currentScorePlayerOne.innerHTML = currentP1
         } else {
             playerTwoActive.classList.remove('player--active');
             playerOneActive.classList.add('player--active');
             currentP2 = 0
-            playSound(HoldSound)
+            playSound(errorSound)
             currentScorePlayerTwo.innerHTML = currentP2
         }
     }
@@ -154,8 +155,8 @@ const holdScore = (diceValue) => {
             finalScorePlayerOne.style.color = "white"
             finalScorePlayerTwo.style.color = "white"
             finalScorePlayerTwo.innerHTML = "100"
-           remarksPlayerTwo.innerHTML = "Player Two Won"
-            remarksPlayerOne.innerHTML = "Player One Loss"
+           remarksPlayerOne.innerHTML = "Player One Won"
+            remarksPlayerTwo.innerHTML = "Player Two Lost"
             playerTwoActive.style.backgroundColor = "#84B179"
             hold.disabled = true;
             playSound(winSound)
@@ -188,6 +189,4 @@ const gamereset = () => {
     playSound(gameresetSound)
 }
 
-
 reset.addEventListener("click", gamereset)
-
