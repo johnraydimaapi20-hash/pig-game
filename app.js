@@ -29,7 +29,7 @@ const rollDice = () => {
     x = Math.floor(Math.random() * 6) + 1;
     console.log(x);
     changeDiceImage(x)
-//    switchPlayer(x)
+    switchPlayer(x)
 }
 
 
@@ -187,5 +187,6 @@ const gamereset = () => {
     btnroll.disabled = false;
     playSound(gameresetSound)
 }
+
 
 reset.addEventListener("click", gamereset)
