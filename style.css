@@ -27,7 +27,7 @@ main {
   position: relative;
   width: 100rem;
   height: 60rem;
-   background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
   filter: blur();
@@ -54,7 +54,7 @@ main {
   letter-spacing: 1px;
   word-spacing: 2px;
   font-weight: 300;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .score {
@@ -62,21 +62,25 @@ main {
   font-weight: 300;
   max-height: 40px;
   color: #f1f5f9;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
-.remarksOne, .remarksTwo {
+
+.remarksOne,
+.remarksTwo {
   font-size: 4rem;
   font-weight: 300;
-    margin-bottom: auto;
+  margin-bottom: auto;
 
 }
 
 .player--active {
-   background: rgba(0, 0, 0, 0.478);
-} 
+  background: rgba(0, 0, 0, 0.478);
+}
+
 .player--active .name {
   font-weight: 700;
 }
+
 .player--active .score {
   font-weight: 400;
 }
@@ -86,23 +90,23 @@ main {
 }
 
 .current {
-    background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.15);
   opacity: 0.8;
   border-radius: 9px;
   color: #f9fafb;
- 
+
   width: 65%;
   padding: 2rem;
   text-align: center;
   transition: all 0.75s;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .current-label {
   text-transform: uppercase;
   margin-bottom: 1rem;
   font-size: 1.7rem;
-    color: #ddd6fe;
+  color: #ddd6fe;
 }
 
 .current-score {
@@ -125,10 +129,10 @@ main {
   transition: all 0.2s;
   color: #4c1d95;
   background: rgba(255, 255, 255, 0.7);
- 
+
   padding: 0.7rem 2.5rem;
   border-radius: 50rem;
- 
+
   backdrop-filter: blur(10px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
@@ -142,16 +146,18 @@ main {
 .btn--new {
   top: 4rem;
 }
+
 .btn--roll {
   top: 39.3rem;
 }
+
 .btn--hold {
   top: 46.1rem;
 }
 
 .btn:active {
   transform: translate(-50%, 3px);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1rem 2rem rgba(199, 199, 199, 0.664);
 }
 
 .btn:focus {
@@ -164,50 +170,54 @@ main {
   top: 16.5rem;
   transform: translateX(-50%);
   height: 10rem;
-  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+  border-radius: 9px;
+  box-shadow: 1rem 2rem 5rem rgba(239, 235, 235, 0.726);
 }
 
 .player--winner {
-    background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .player--winner .name {
-   color: #facc15;
+  color: #facc15;
   font-weight: 700;
 }
 
-@media  screen and (max-width: 376px) {
+
+/* Media Query */
+@media screen and (max-width: 376px) {
   html {
     font-size: 50%;
   }
-  
+
   main {
     width: 100%;
     height: 100%;
     border-radius: 0;
   }
-  
+
   .player {
     padding: 4rem;
   }
-  
+
   .score {
     font-size: 6rem;
   }
-  
+
   .current {
     width: 80%;
     padding: 2rem;
     margin-bottom: 4rem;
   }
-  
+
   .current-label {
     font-size: 1.5rem;
   }
-  
+
   .current-score {
     font-size: 2.5rem;
   }
+
   .name {
     font-size: 3rem;
     align-items: center;
@@ -215,41 +225,50 @@ main {
     justify-self: start;
     margin-top: 5rem;
   }
+
   .btn--new {
     top: 2rem;
   }
+
   .dice {
     top: 18.5rem;
     height: 8rem;
   }
 }
 
-@media  screen and (max-width: 426px) {
+@media screen and (max-width: 426px) {
   html {
     font-size: 55%;
-  } 
+  }
+
   .main {
     width: 100%;
     height: 100%;
     border-radius: 0;
   }
+
   .player {
-    padding: 4rem;  
+    padding: 4rem;
   }
+
   .score {
     font-size: 6rem;
   }
+
   .current {
     width: 80%;
     padding: 2rem;
-    margin-bottom: 4rem; 
+    margin-bottom: 4rem;
   }
+
   .current-label {
     font-size: 1.5rem;
   }
+
   .current-score {
     font-size: 2.5rem;
   }
+
   .name {
     font-size: 3rem;
     align-items: center;
@@ -257,9 +276,11 @@ main {
     justify-self: start;
     margin-top: 5rem;
   }
+
   .btn--new {
     top: 2rem;
   }
+
   .dice {
     top: 18.5rem;
     height: 8rem;

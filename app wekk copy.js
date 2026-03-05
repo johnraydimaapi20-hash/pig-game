@@ -1,5 +1,5 @@
-'use strict'
-let body = document.querySelector(".body")
+' use strict'
+let x = 0;
 let activePlayer = document.querySelector(".player--active")
 let score = document.querySelector(".score")
 let finalScorePlayerOne = document.querySelector("#score--0")
@@ -11,32 +11,29 @@ let playerTwoActive = document.querySelector(".player--1")
 let dice = document.querySelector(".dice")
 let btnroll = document.querySelector(".btn--roll")
 let hold = document.querySelector(".btn--hold")
-let remarksPlayerOne = document.querySelector(".remarksOne")
-let remarksPlayerTwo = document.querySelector(".remarksTwo")
 let reset = document.querySelector(".btn--new")
-
-let x = 0;
 let currentP1 = 0
 let playerOne = 0;
 let playerTwo = 0;
 let currentP2 = 0
 
 let addPoints = new Audio("addPoints.mp3")
-let errorSound = new Audio("error.mp3")
-let winSound = new Audio("winner.mp3")
+let winSound = new Audio("Winner.mp3")
+let wrongPoint = new Audio("OnePoints.mp3")
 let HoldSound = new Audio("holdSound.mp3")
 let gameresetSound = new Audio("gameReset.mp3")
 
 const rollDice = () => {
     x = Math.floor(Math.random() * 6) + 1;
     console.log(x);
+    addCurrentScore(x)
     changeDiceImage(x)
     switchPlayer(x)
 }
 
 
 function playSound(sound) {
-    const allSounds = [addPoints, winSound, HoldSound, gameresetSound, errorSound];
+    const allSounds = [addPoints, winSound, wrongPoint, HoldSound, gameresetSound];
 
     allSounds.forEach(s => {
         if (s !== sound) {
@@ -51,10 +48,10 @@ function playSound(sound) {
 }
 
 const changeDiceImage = (diceValue) => {
-    if (diceValue === 1) {
+    if (diceValue == 1) {
         switchPlayer()
         return dice.src = "dice-1.png";
-    } else if (diceValue == 2) {
+    } else if (diceValue == 100) {
         addCurrentScore(diceValue)
         console.log(diceValue)
         dice.src = "dice-2.png";
@@ -100,13 +97,13 @@ const switchPlayer = (diceValue) => {
             playerOneActive.classList.remove('player--active');
             playerTwoActive.classList.add('player--active');
             currentP1 = 0
-            playSound(errorSound)
+            playSound(wrongPoint)
             currentScorePlayerOne.innerHTML = currentP1
         } else {
             playerTwoActive.classList.remove('player--active');
             playerOneActive.classList.add('player--active');
             currentP2 = 0
-            playSound(errorSound)
+            playSound(wrongPoint)
             currentScorePlayerTwo.innerHTML = currentP2
         }
     }
@@ -131,9 +128,8 @@ const holdScore = (diceValue) => {
             playerOneActive.style.backgroundColor = "#84B179"
             finalScorePlayerOne.style.color = "white"
             finalScorePlayerTwo.style.color = "white"
-            finalScorePlayerOne.innerHTML = "100"
-            remarksPlayerOne.innerHTML = "Player One Won"
-            remarksPlayerTwo.innerHTML = "Player Two Loss"
+            finalScorePlayerOne.innerHTML = " 100:  Player One Won"
+            finalScorePlayerTwo.innerHTML = "Player Two Loss"
             hold.disabled = true;
             btnroll.disabled = true;
             playSound(winSound)
@@ -155,10 +151,9 @@ const holdScore = (diceValue) => {
             finalScorePlayerTwo.style.fontSize = "3.5rem"
             finalScorePlayerOne.style.color = "white"
             finalScorePlayerTwo.style.color = "white"
-            finalScorePlayerTwo.innerHTML = "100"
-            remarksPlayerOne.innerHTML = "Player One Won"
-            remarksPlayerTwo.innerHTML = "Player Two Lost"
+            finalScorePlayerTwo.innerHTML = " 100:  Player Two Won"
             playerTwoActive.style.backgroundColor = "#84B179"
+            finalScorePlayerOne.innerHTML = "Player One Loses"
             hold.disabled = true;
             playSound(winSound)
             btnroll.disabled = true;
@@ -177,15 +172,11 @@ const gamereset = () => {
     playerTwo = 0;
     currentScorePlayerOne.textContent = currentP1;
     currentScorePlayerTwo.textContent = currentP2;
-    playerOneActive.style.backgroundColor = ""
-    playerTwoActive.style.backgroundColor = ""
     playerOneActive.classList.add('player--active');
     playerTwoActive.classList.remove('player--active');
     finalScorePlayerOne.textContent = playerOne;
     finalScorePlayerTwo.textContent = playerTwo;
     hold.disabled = false;
-    remarksPlayerOne.innerHTML = "";
-    remarksPlayerTwo.innerHTML = "";
     btnroll.disabled = false;
     playSound(gameresetSound)
 }
